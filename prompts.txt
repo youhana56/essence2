@@ -3,3 +3,4 @@ I want my website to show up on Google Make sure it’s published and live
 Add SEO features (meta title, meta description, keywords
  get my site indexed by Google
 give me website link
+Can you insert this meta tag into the head of my site for Google Search Console verification <meta name="google-site-verification" content="-NUB9KxrqLwta7S3tJreJ_9xSkc8GmczsDZDk6A_MXs" />
