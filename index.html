@@ -1,31 +1,513 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="google-site-verification" content="NUB9KxrqLwta7S3tJreJ_9xSkc8GmczsDZDk6A_MXs" />
-  <title>Essence</title>
-  <!-- Preserving DeepSite's styling -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@deep-site/ui@latest/dist/main.css">
-  <style>
-    body {
-      padding: 20px;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Exclusive VIP Lounge for Essence Luxury Perfumes - Access limited edition fragrances, bespoke experiences, and members-only privileges.">
+    <meta name="keywords" content="luxury perfumes, VIP, exclusive fragrances, bespoke scents, Essence">
+    <meta name="author" content="Essence Luxury Perfumes">
+    <meta property="og:title" content="VIP Lounge | Essence Luxury Perfumes">
+    <meta property="og:description" content="Your gateway to limited edition fragrances and exclusive experiences">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://vip.essence.com">
+    <title>VIP Lounge | Essence Luxury Perfumes</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;500;600;700&display=swap" as="style">
+    
+    <!-- CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #92400e;
+            --primary-light: #b45309;
+            --vip-gold: #d4af37;
+            --vip-dark: #1a1a2e;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f8f5f0;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+        
+        .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .vip-hero {
+            background: linear-gradient(rgba(26, 26, 46, 0.8), rgba(26, 26, 46, 0.8)), url('https://images.unsplash.com/photo-1605210058421-1a0a0398a815?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        .vip-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: linear-gradient(135deg, #2d2d42 0%, #1a1a2e 100%);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        
+        .vip-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px -12px rgba(212, 175, 55, 0.2);
+            border-color: var(--vip-gold);
+        }
+        
+        .vip-badge {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background-color: var(--vip-gold);
+            color: var(--vip-dark);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+        }
+        
+        .vip-btn {
+            background: linear-gradient(135deg, var(--vip-gold) 0%, #c9a227 100%);
+            color: var(--vip-dark);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(212, 175, 55, 0.3);
+        }
+        
+        .vip-btn:hover {
+            background: linear-gradient(135deg, #e6c050 0%, var(--vip-gold) 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(212, 175, 55, 0.4);
+        }
+        
+        .vip-border {
+            border-color: rgba(212, 175, 55, 0.3);
+        }
+        
+        .vip-text-gold {
+            color: var(--vip-gold);
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .vip-input {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            color: white;
+        }
+        
+        .vip-input:focus {
+            outline: none;
+            border-color: var(--vip-gold);
+            box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
+        }
+        
+        .vip-input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Accessibility improvements */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+
+        [aria-hidden="true"] {
+            display: none;
+        }
+
+        /* Focus styles for keyboard navigation */
+        a:focus, button:focus, input:focus {
+            outline: 2px solid var(--vip-gold);
+            outline-offset: 2px;
+        }
+    </style>
 </head>
 <body>
-  <!-- DeepSite's Content Will Auto-Appear Here -->
-  <div id="deep-site-root"></div>
-  
-  <!-- Preserving DeepSite's scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/@deep-site/core@latest/dist/main.js"></script>
-  <script>
-    // Initialize DeepSite (if needed)
-    window.deepSite.init({
-      projectId: 'YOUR_PROJECT_ID'
-    });
-  </script>
-</body>
+    <!-- Skip to content link for accessibility -->
+    <a href="#main-content" class="sr-only focus:not-sr-only">Skip to main content</a>
+
+    <!-- VIP Navigation -->
+    <header role="banner">
+        <nav class="bg-vip-dark shadow-md sticky top-0 z-50" style="background-color: var(--vip-dark);" aria-label="Main navigation">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center">
+                        <a href="#" class="text-2xl font-serif font-bold vip-text-gold" aria-label="Essence VIP Home">
+                            ESSENCE <span class="text-white">VIP</span>
+                        </a>
+                    </div>
+                    <div class="hidden md:flex items-center space-x-10">
+                        <a href="#" class="text-gray-300 hover:text-white transition">Lounge</a>
+                        <a href="#" class="text-gray-300 hover:text-white transition">Exclusives</a>
+                        <a href="#" class="text-gray-300 hover:text-white transition">Events</a>
+                        <a href="#" class="text-gray-300 hover:text-white transition">Personalization</a>
+                        <a href="#" class="vip-text-gold hover:text-yellow-200 transition" aria-label="VIP account">
+                            <i class="fas fa-crown" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white transition" aria-label="Shopping bag">
+                            <i class="fas fa-shopping-bag" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                    <div class="md:hidden">
+                        <button class="text-gray-300 focus:outline-none" aria-label="Mobile menu">
+                            <i class="fas fa-bars text-2xl" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main-content" role="main">
+        <!-- VIP Hero Section -->
+        <section class="vip-hero min-h-screen flex items-center justify-center text-white fade-in" aria-label="VIP Lounge introduction">
+            <div class="container mx-auto px-6 text-center">
+                <div class="mb-6">
+                    <span class="bg-black bg-opacity-50 text-vip-gold px-4 py-2 rounded-full text-sm font-medium" style="color: var(--vip-gold);">EXCLUSIVE ACCESS</span>
+                </div>
+                <h1 class="text-4xl md:text-6xl font-serif mb-6">Welcome to the <span class="vip-text-gold">Essence VIP Lounge</span></h1>
+                <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">Your gateway to limited edition fragrances, bespoke experiences, and members-only privileges.</p>
+                <a href="#" class="vip-btn px-8 py-3 rounded-full font-medium inline-block">Unlock VIP Benefits</a>
+            </div>
+        </section>
+
+        <!-- VIP Exclusive Products -->
+        <section class="py-20" style="background-color: var(--vip-dark);" aria-label="Exclusive products">
+            <div class="container mx-auto px-6">
+                <header class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-serif text-white mb-4">VIP <span class="vip-text-gold">Exclusives</span></h2>
+                    <p class="text-gray-400 max-w-2xl mx-auto">Fragrances crafted exclusively for our VIP members, unavailable to the general public.</p>
+                </header>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                    <!-- Product 1 -->
+                    <article class="vip-card rounded-lg overflow-hidden shadow-lg relative">
+                        <div class="vip-badge">
+                            <i class="fas fa-crown" aria-hidden="true"></i>
+                            <span class="sr-only">VIP Exclusive</span>
+                        </div>
+                        <div class="p-8 text-center">
+                            <div class="flex justify-center mb-6">
+                                <img src="https://images.unsplash.com/photo-1615634267807-6e439108676e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                                     alt="Royal Oud perfume bottle" 
+                                     class="h-48 object-contain floating">
+                            </div>
+                            <h3 class="text-xl font-serif text-white mb-2">Royal Oud</h3>
+                            <p class="text-gray-400 mb-4">Limited to 500 bottles worldwide</p>
+                            <div class="flex justify-center items-center mb-4">
+                                <div class="text-vip-gold mr-2" aria-label="5 star rating">
+                                    <i class="fas fa-star" aria-hidden="true"></i>
+                                    <i class="fas fa-star" aria-hidden="true"></i>
+                                    <i class="fas fa-star" aria-hidden="true"></i>
+                                    <i class="fas fa-star" aria-hidden="true"></i>
+                                    <i class="fas fa-star" aria-hidden="true"></i>
+                                </div>
+                                <span class="text-sm text-gray-400">(24 reviews)</span>
+                            </div>
+                            <p class="text-white text-lg mb-4">$395</p>
+                            <a href="#" class="vip-btn text-sm px-6 py-2 rounded-full font-medium inline-block">Add to Cart</a>
+                        </div>
+                    </article>
+                    
+                    <!-- Product 2 -->
+                    <article class="vip-card rounded-lg overflow-hidden shadow-lg relative">
+                        <div class="vip-badge">
+                            <i class="fas fa-crown" aria-hidden="true"></i>
+                            <span class="sr-only">VIP Exclusive</span>
+                        </div>
+                        <div class="p-8 text-center">
+                            <div class="flex justify-center mb-6">
+                                <img src="https://images.unsplash.com/photo-1611068814580-7f13c8dbe6a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                                     alt="Black Orchid perfume bottle" 
+                                     class="h-48 object-contain floating">
+                            </div>
+                            <h3 class="text-xl font-serif text-white mb-2">Black Orchid</h3>
+                            <p class="text-gray-400 mb-4">VIP Anniversary Edition</p>
+                            <div class="flex justify-center items-center mb-4">
+                                <div class="text-vip-gold mr-2" aria-label="4.5 star rating">
+                                    <i class="fas fa-star" aria-hidden="true"></i>
+                                    <i class="fas fa-star" aria-hidden="true"></i>
+                                    <i class="fas fa-star" aria-hidden="true"></i>
+                                    <i class="fas fa-star" aria-hidden="true"></i>
+                                    <i class="fas fa-star-half-alt" aria-hidden="true"></i>
+                                </div>
+                                <span class="text-sm text-gray-400">(18 reviews)</span>
+                            </div>
+                            <p class="text-white text-lg mb-4">$450</p>
+                            <a href="#" class="vip-btn text-sm px-6 py-2 rounded-full font-medium inline-block">Add to Cart</a>
+                        </div>
+                    </article>
+                    
+                    <!-- Product 3 -->
+                    <article class="vip-card rounded-lg overflow-hidden shadow-lg relative">
+                        <div class="vip-badge">
+                            <i class="fas fa-crown" aria-hidden="true"></i>
+                            <span class="sr-only">VIP Exclusive</span>
+                        </div>
+                        <div class="p-8 text-center">
+                            <div class="flex justify-center mb-6">
+                                <img src="https://images.unsplash.com/photo-1611519028134-7b4d9b3a1c7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                                     alt="Diamond Elixir perfume bottle" 
+                                     class="h-48 object-contain floating">
+                            </div>
+                            <h3 class="text-xl font-serif text-white mb-2">Diamond Elixir</h3>
+                            <p class="text-gray-400 mb-4">With genuine diamond dust</p>
+                            <div class="flex justify-center items-center mb-4">
+                                <div class="text-vip-gold mr-2" aria-label="5 star rating">
+                                    <i class="fas fa-star" aria-hidden="true"></i>
+                                    <i class="fas fa-star" aria-hidden="true"></i>
+                                    <i class="fas fa-star" aria-hidden="true"></i>
+                                    <i class="fas fa-star" aria-hidden="true"></i>
+                                    <i class="fas fa-star" aria-hidden="true"></i>
+                                </div>
+                                <span class="text-sm text-gray-400">(32 reviews)</span>
+                            </div>
+                            <p class="text-white text-lg mb-4">$650</p>
+                            <a href="#" class="vip-btn text-sm px-6 py-2 rounded-full font-medium inline-block">Add to Cart</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- VIP Benefits -->
+        <section class="py-20 bg-white" aria-label="VIP membership benefits">
+            <div class="container mx-auto px-6">
+                <header class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-serif text-gray-800 mb-4">VIP <span class="vip-text-gold">Membership</span> Benefits</h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto">Experience the pinnacle of luxury with our exclusive VIP program</p>
+                </header>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Benefit 1 -->
+                    <article class="bg-gray-50 p-8 rounded-lg shadow-md border-t-4 border-vip-gold">
+                        <div class="text-vip-gold text-4xl mb-4">
+                            <i class="fas fa-gem" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="text-xl font-serif text-gray-800 mb-4">Early Access</h3>
+                        <p class="text-gray-600">Be the first to purchase new releases and limited editions before they're available to the public.</p>
+                    </article>
+                    
+                    <!-- Benefit 2 -->
+                    <article class="bg-gray-50 p-8 rounded-lg shadow-md border-t-4 border-vip-gold">
+                        <div class="text-vip-gold text-4xl mb-4">
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="text-xl font-serif text-gray-800 mb-4">Bespoke Fragrances</h3>
+                        <p class="text-gray-600">Work with our master perfumers to create a scent uniquely tailored to your personality.</p>
+                    </article>
+                    
+                    <!-- Benefit 3 -->
+                    <article class="bg-gray-50 p-8 rounded-lg shadow-md border-t-4 border-vip-gold">
+                        <div class="text-vip-gold text-4xl mb-4">
+                            <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="text-xl font-serif text-gray-800 mb-4">Exclusive Events</h3>
+                        <p class="text-gray-600">Invitations to private launches, masterclasses with perfumers, and VIP-only shopping experiences.</p>
+                    </article>
+                    
+                    <!-- Benefit 4 -->
+                    <article class="bg-gray-50 p-8 rounded-lg shadow-md border-t-4 border-vip-gold">
+                        <div class="text-vip-gold text-4xl mb-4">
+                            <i class="fas fa-gift" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="text-xl font-serif text-gray-800 mb-4">Complimentary Gifts</h3>
+                        <p class="text-gray-600">Receive exclusive samples, travel sizes, and luxury gifts with your purchases.</p>
+                    </article>
+                    
+                    <!-- Benefit 5 -->
+                    <article class="bg-gray-50 p-8 rounded-lg shadow-md border-t-4 border-vip-gold">
+                        <div class="text-vip-gold text-4xl mb-4">
+                            <i class="fas fa-shipping-fast" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="text-xl font-serif text-gray-800 mb-4">Free Express Shipping</h3>
+                        <p class="text-gray-600">Enjoy complimentary worldwide express shipping on all orders, with priority handling.</p>
+                    </article>
+                    
+                    <!-- Benefit 6 -->
+                    <article class="bg-gray-50 p-8 rounded-lg shadow-md border-t-4 border-vip-gold">
+                        <div class="text-vip-gold text-4xl mb-4">
+                            <i class="fas fa-user-tie" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="text-xl font-serif text-gray-800 mb-4">Personal Concierge</h3>
+                        <p class="text-gray-600">Your dedicated VIP manager to assist with all your Essence needs and preferences.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- VIP Personalization -->
+        <section class="py-20" style="background-color: var(--vip-dark);" aria-label="Bespoke fragrance service">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                        <img src="https://images.unsplash.com/photo-1615634267807-6e439108676e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                             alt="Perfumer creating a custom fragrance" 
+                             class="rounded-lg shadow-xl floating">
+                    </div>
+                    <div class="md:w-1/2">
+                        <h2 class="text-3xl md:text-4xl font-serif text-white mb-6">Create Your <span class="vip-text-gold">Signature Scent</span></h2>
+                        <p class="text-gray-400 mb-6">As a VIP member, you have access to our exclusive bespoke fragrance service. Work one-on-one with our master perfumers to craft a scent that's uniquely yours.</p>
+                        <p class="text-gray-400 mb-8">From selecting rare ingredients to designing custom packaging, every detail is tailored to your personal style and preferences.</p>
+                        <a href="#" class="vip-btn px-8 py-3 rounded-full font-medium inline-block">Begin Your Journey</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VIP Newsletter -->
+        <section class="py-16 bg-gradient-to-r from-vip-dark to-gray-900 text-white" aria-label="VIP newsletter subscription">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl font-serif mb-6">VIP <span class="vip-text-gold">Updates</span></h2>
+                <p class="max-w-2xl mx-auto mb-8">Subscribe to receive exclusive VIP communications, including early product announcements, private event invitations, and special offers.</p>
+                <form class="max-w-md mx-auto flex">
+                    <label for="vip-email" class="sr-only">Email address</label>
+                    <input type="email" id="vip-email" placeholder="Your email address" class="flex-grow px-4 py-3 rounded-l focus:outline-none vip-input" required>
+                    <button type="submit" class="vip-btn px-6 py-3 rounded-r font-medium">Subscribe</button>
+                </form>
+                <p class="text-gray-400 text-sm mt-4">For VIP members only. By subscribing, you agree to our Privacy Policy.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- VIP Footer -->
+    <footer class="bg-black text-white py-12" role="contentinfo">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-serif mb-4 vip-text-gold">ESSENCE VIP</h3>
+                    <p class="text-gray-400">The ultimate luxury fragrance experience for our most valued clients.</p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition" aria-label="Instagram">
+                            <i class="fab fa-instagram" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition" aria-label="Pinterest">
+                            <i class="fab fa-pinterest-p" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition" aria-label="Twitter">
+                            <i class="fab fa-twitter" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-medium mb-4 text-white">VIP Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Bespoke Fragrances</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">VIP Events</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Personal Concierge</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Membership Benefits</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-medium mb-4 text-white">Contact</h4>
+                    <address class="not-italic">
+                        <ul class="space-y-2">
+                            <li><a href="mailto:vip@essence.com" class="text-gray-400 hover:text-white transition">vip@essence.com</a></li>
+                            <li><a href="tel:+155584737362" class="text-gray-400 hover:text-white transition">+1 (555) VIP-ESSENCE</a></li>
+                            <li class="text-gray-400">Mon-Fri: 9AM-9PM EST</li>
+                            <li class="text-gray-400">Sat-Sun: 10AM-6PM EST</li>
+                        </ul>
+                    </address>
+                </div>
+                <div>
+                    <h4 class="font-medium mb-4 text-white">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">VIP Login</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">FAQ</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Shipping & Returns</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Visit Main Site</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm">© <span id="current-year">2023</span> Essence Luxury Perfumes VIP. All rights reserved.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Update copyright year automatically
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Simple animation trigger
+        document.addEventListener('DOMContentLoaded', function() {
+            const vipCards = document.querySelectorAll('.vip-card');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            vipCards.forEach(card => {
+                card.style.opacity = 0;
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
+            });
+            
+            // VIP badge animation
+            const vipBadges = document.querySelectorAll('.vip-badge');
+            vipBadges.forEach(badge => {
+                badge.addEventListener('mouseenter', () => {
+                    badge.style.transform = 'rotate(15deg) scale(1.1)';
+                });
+                badge.addEventListener('mouseleave', () => {
+                    badge.style.transform = '';
+                });
+            });
+
+            // Mobile menu toggle functionality
+            const mobileMenuButton = document.querySelector('.md\\:hidden button');
+            if (mobileMenuButton) {
+                mobileMenuButton.addEventListener('click', function() {
+                    // This would toggle a mobile menu - you'd need to implement this
+                    console.log('Mobile menu toggled');
+                });
+            }
+        });
+    </script>
+<p style="border-radius: 8px; text-align: center; font-size: 12px; color: #fff; margin-top: 16px;position: fixed; left: 8px; bottom: 8px; z-index: 10; background: rgba(0, 0, 0, 0.8); padding: 4px 8px;">Made with <img src="https://enzostvs-deepsite.hf.space/logo.svg" alt="DeepSite Logo" style="width: 16px; height: 16px; vertical-align: middle;display:inline-block;margin-right:3px;filter:brightness(0) invert(1);"><a href="https://enzostvs-deepsite.hf.space" style="color: #fff;text-decoration: underline;" target="_blank" >DeepSite</a> - 🧬 <a href="https://enzostvs-deepsite.hf.space?remix=pomobip797/essence" style="color: #fff;text-decoration: underline;" target="_blank" >Remix</a></p></body>
 </html>
